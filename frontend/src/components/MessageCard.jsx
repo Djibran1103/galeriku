@@ -14,7 +14,7 @@ const MessageCard = () => {
             </div>
             </form>
             <h1 className="text-left font-bold text-white text-6xl ml-20">OUR LATEST OFFERS</h1>
-            <button type="button" className="mx-24 px-2 text-dark bg-[#FFFFFF] mt-2 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mt-8 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Send Us Your Opinion</button>   
+            <button type="button" className="mx-24 px-2 text-dark bg-[#FFFFFF] mt-2 hover:bg-[#E9615A] hover:text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mt-8 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Send Us Your Opinion</button>   
         </div>
      );
 }
