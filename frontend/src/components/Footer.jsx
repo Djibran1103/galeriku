@@ -1,11 +1,16 @@
+import MessageCard from "./MessageCard";
+
 const Footer = () => {
   return (
-    <footer className="bg-[#F0F0F0] dark:bg-gray-900">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div className="md:flex md:justify-between">
+    <footer>
+      <div className=" bg-[#F0F0F0] dark:bg-gray-90 mx-auto mt-28 w-full py-6 p-4 lg:py-8">
+        <div className="-mt-28">
+          <MessageCard />
+        </div>
+        <div className="md:flex md:justify-between mt-10 mx-20">
           <div className="mb-6 md:mb-0">
             <a href="https://flowbite.com/" className="flex items-center">
-              <span className="self-center font-bold text-2xl text-[#E9615A] font-semibold whitespace-nowrap dark:text-white">
+              <span className="self-center font-bold text-4xl text-[#E9615A] font-bold whitespace-nowrap dark:text-white">
                 Our Gallery
               </span>
             </a>
@@ -81,7 +86,7 @@ const Footer = () => {
           </div>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <div className="sm:flex sm:items-center sm:justify-between">
+        <div className="sm:flex sm:items-center sm:justify-between mx-20">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
             <a href="https://flowbite.com/" className="hover:underline">

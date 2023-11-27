@@ -2,7 +2,7 @@ const Card = () => {
   return (
     <div className="mx-2 mb-5">
       <h1 className="text-center pt-8 pb-8 font-bold text-4xl">
-        Check The New Arrival
+        Check The New Arrival Art
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <a href="#">
@@ -36,7 +36,7 @@ const Card = () => {
       </div>
       <div>
         <h1 className="text-center pt-8 pb-8 font-bold text-4xl">
-          Check The New Arrival
+          Check The New Arrival Video
         </h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <a href="#">
@@ -71,7 +71,7 @@ const Card = () => {
       </div>
       <div>
         <h1 className="text-center pt-8 pb-8 font-bold text-4xl	">
-          Check The New Arrival
+          Check The New Photo
         </h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <a href="#">
