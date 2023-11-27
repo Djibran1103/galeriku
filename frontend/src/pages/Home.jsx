@@ -1,13 +1,14 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
+import Banner from "../components/banner";
 // import MessageCard from "../components/MessageCard";
 
 const Home = () => {
   return (
     <div>
       <Navbar />
-      <div className="justify-center text-center">Disini Letak Banner</div>
+      <Banner />
       <Card />
       <div className="-bottom-20">
         <Footer />
