@@ -1,6 +1,6 @@
 const MessageCard = () => {
     return ( 
-        <div className="bg-[#F9D86C] py-24 mx-20 pt-16 rounded-lg grid grid-cols-2">
+        <div className="bg-[#F9D86C] py-24 mx-20 pt-14 rounded-lg grid grid-cols-2">
             <h1 className="text-left font-bold text-white text-6xl ml-20">STAY UP TO DATE ABOUT</h1>    
             <form className="mx-24 mt-4">
             <div className="relative">
@@ -14,7 +14,7 @@ const MessageCard = () => {
             </div>
             </form>
             <h1 className="text-left font-bold text-white text-6xl ml-20">OUR LATEST OFFERS</h1>
-            <button type="button" className="mx-24 px-2 text-dark bg-[#FFFFFF] mt-2 hover:bg-[#E9615A] hover:text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mt-8 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Send Us Your Opinion</button>   
+            <button type="button" className="mx-24 px-2 py-2 text-dark bg-[#FFFFFF] hover:bg-[#E9615A] hover:text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mt-3 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Send Us Your Opinion</button>   
         </div>
      );
 }
