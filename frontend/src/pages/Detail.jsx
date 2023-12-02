@@ -129,6 +129,7 @@ const Detail = () => {
             </div>
           </div>
         </div>
+        <Comments/>
         <Footer/>
       </div>
     );
