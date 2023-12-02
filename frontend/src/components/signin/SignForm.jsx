@@ -6,7 +6,6 @@ const SignForm = () => {
   const handleGenderChange = (event) => {
     setGender(event.target.value);
   };
-
   return (
     <div className="block max-w p-16 bg-gray-100 mx-32 border shadow-xl border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
       <h1 className="font-bold text-center text-6xl text-[#E9615A] mb-8">

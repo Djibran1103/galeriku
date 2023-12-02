@@ -31,7 +31,9 @@ const LoginForm = () => {
   };
   return (
     <div className="block max-w p-16 bg-gray-100 mx-32 border shadow-xl border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-      <h1 className="font-bold text-center text-6xl text-[#E9615A] mb-8">Login for Artists</h1>
+      <h1 className="font-bold text-center text-6xl text-[#E9615A] mb-8">
+        Login for Artists
+      </h1>
       <form onSubmit={handleSubmit}>
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           Email
@@ -79,7 +81,6 @@ const LoginForm = () => {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          
         </div>
         <button
           type="submit"
@@ -90,9 +91,9 @@ const LoginForm = () => {
       </form>
       <div className="flex justify-center ">
         <p className="mt-2 text-center space-x-2.5">
-          Belum Daftar ? 
+          Belum Daftar ?
           <Link to="/sign-in" className="ml-2 italic hover:text-blue-400">
-          Sign In
+            Sign In
           </Link>
         </p>
       </div>
