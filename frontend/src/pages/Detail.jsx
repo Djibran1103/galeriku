@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useParams } from 'react-router-dom';
+import Comments from "../components/detail/Comments";
 const Detail = () => {
     const dummyArtData = [
       { id: 1, title: "Art 1" ,src:"https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"},
@@ -37,6 +37,9 @@ const Detail = () => {
           
         </div>
         
+        </div>
+        <div className="mx-8">
+          <Comments />
         </div>
         <Footer/>
       </div>
