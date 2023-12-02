@@ -1,14 +1,9 @@
-<<<<<<< HEAD
+
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useParams } from 'react-router-dom';
 import Comments from "../components/detail/Comments";
-=======
-import { useState } from "react";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import { useParams } from "react-router-dom";
->>>>>>> 4b391a3c7ed695c8788ed5cf3d33ea7ada2f5ed5
+
 const Detail = () => {
   const dummyArtData = [
     {
@@ -78,16 +73,8 @@ const Detail = () => {
         <div className="h-auto max-w-full rounded-lg grid-col-1">
           <div></div>
         </div>
-<<<<<<< HEAD
-        
-        </div>
-        <div className="mx-8">
-          <Comments />
-        </div>
-        <Footer/>
-=======
->>>>>>> 4b391a3c7ed695c8788ed5cf3d33ea7ada2f5ed5
       </div>
+      <Comments />
       <Footer />
     </div>
   );
