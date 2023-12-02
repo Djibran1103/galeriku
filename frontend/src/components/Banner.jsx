@@ -1,79 +1,39 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  //   const navigate = useNavigate();
+    const navigate = useNavigate();
 
   const handleCollapseToggle = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-  //   const handleSignInClick = () => {
-  //     navigate("/login");
-  //   };
-  const style = {
-    backgroundImage:
-      'url("https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg")',
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
+    const handleSignInClick = () => {
+      navigate("/login");
+    };
   return (
-    <div
-      id="marketing-banner"
-      style={style}
-      tabIndex={-1}
-      className={`top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600 ${
-        isCollapsed ? "hidden" : ""
-      }`}
-    >
-      <div className="flex flex-col items-start mb-3 me-4 md:items-center md:flex-row md:mb-0">
-        <a
-          href="https://flowbite.com/"
-          className="flex items-center mb-2 border-gray-200 md:pe-4 md:me-4 md:border-e md:mb-0 dark:border-gray-600"
-        >
-          <img src="../../vite.svg" className="h-6 me-2" alt="Flowbite Logo" />
-          <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-dark">
-            Our Gallery
-          </span>
-        </a>
-        <p className="flex items-center text-md ">
-          Discover Art, Video, and Photo
-        </p>
-      </div>
-      <div className="flex items-center flex-shrink-0">
-        <a
-          href="/login"
-          //   onClick={handleSignInClick}
-          className="px-5 py-2 me-2 text-xs font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        >
-          Sign In
-        </a>
-        <button
-          onClick={handleCollapseToggle}
-          data-dismiss-target="#marketing-banner"
-          type="button"
-          className="flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-gray-400 hover:bg-white hover:text-dark rounded-lg text-sm p-1.5 dark:hover:bg-white dark:hover:text-default"
-        >
-          <svg
-            className="w-3 h-3"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 14"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-            />
-          </svg>
-          <span className="sr-only">Close banner</span>
-        </button>
-      </div>
+    
+
+<section className=" bg-no-repeat bg-[url('https://api-cdn.figma.com/resize/img/40e4/04e7/1112444da1295506c5f14d9defc417db?expiration=1702252800&signature=1a3738055524a181bda6731cef2303c3f5afcc58a6c61b5d88b6e82490a44b00&maxsize=2048&bucket=figma-alpha')] bg-white-700 bg-blend-clear bg-cover">
+    <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-dark md:text-5xl lg:text-6xl">Selamat datang <br/> di Our Gallery</h1>
+        <p className="mb-8 text-lg font-normal text-dark-300 lg:text-xl sm:px-16 lg:px-48">Lihatlah galeri online atas karya anak bangsa dari seni lukis, foto, video dan berbagai macam hal lainnya.</p>
+        <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+
+            <a href="login" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900" onClick={handleSignInClick}>
+                Sign in
+                <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a>
+            <a href="#" className="inline-flex justify-center hover:text-white items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-dark rounded-lg border border-black hover:bg-gray-900 focus:ring-4 focus:ring-gray-400">
+                Learn more
+            </a>  
+        </div>
     </div>
+</section>
+
   );
 };
 
