@@ -29,11 +29,11 @@ const Login = () => {
               <img
                 src="./images/Logo-TrashIn.png"
                 className="h-20"
-                alt="Desweb"
+                alt="TrashIN Logo"
               />
 
               <span className=" whitespace-nowrap  font-black mt-3">
-                <img src="." alt="" />
+                <img src="./images/rashIn.png" alt="" />
               </span>
             </a>
           </div>
@@ -44,7 +44,7 @@ const Login = () => {
         <img
           className="object-cover w-full h-full"
           src="./images/logintps.jpg"
-          alt="login image"
+          alt="tps image"
         />
       </div>
     </aside>

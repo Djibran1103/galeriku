@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './App.css';
-import Home from './pages/Home';
+import "./App.css";
+import Home from "./pages/Home";
 import Videos from "./pages/Videos";
 import Images from "./pages/Images";
 import Art from "./pages/Art";
@@ -19,7 +19,5 @@ function App() {
     </Router>
   );
 }
-
-
 
 export default App;
