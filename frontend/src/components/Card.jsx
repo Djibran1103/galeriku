@@ -7,27 +7,31 @@ const Card = () => {
         Check The New Arrival Art
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <Link to="/detail/1">
         <a href="#">
           <img
             className="h-auto max-w-full rounded-lg"
             src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
             alt=""
           />
-        </a>
+        </a></Link>
+        <Link to="/detail/2">
         <a href="#">
           <img
             className="h-auto max-w-full rounded-lg"
             src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
             alt=""
           />
-        </a>
+        </a></Link>
+        <Link to="/detail/3">
         <a href="#">
           <img
             className="h-auto max-w-full rounded-lg"
             src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
             alt=""
           />
-        </a>
+        </a></Link>
+        <Link to="/detail/4">
         <a href="#">
           <img
             className="h-auto max-w-full rounded-lg"
@@ -35,6 +39,7 @@ const Card = () => {
             alt=""
           />
         </a>
+        </Link>
       </div>
       <div className="flex items-center justify-center pt-5">
           <Link to="/art">
