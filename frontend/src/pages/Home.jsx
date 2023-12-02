@@ -1,8 +1,8 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Card from "../components/Card";
+import Card from "../components/home/CardHome";
 import Banner from "../components/banner";
-import CardComment from "../components/CardComment";
+import CardComment from "../components/home/CardComment";
 // import MessageCard from "../components/MessageCard";
 
 const Home = () => {

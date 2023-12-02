@@ -1,4 +1,4 @@
-import MessageCard from "./MessageCard";
+import MessageCard from "./home/MessageCard";
 
 const Footer = () => {
   return (
