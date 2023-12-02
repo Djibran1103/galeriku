@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Card from "../components/home/CardHome";
-import Banner from "../components/banner";
+import Banner from "../components/home/Banner";
 import CardComment from "../components/home/CardComment";
 // import MessageCard from "../components/MessageCard";
 

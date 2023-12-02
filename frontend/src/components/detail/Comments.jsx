@@ -85,9 +85,9 @@ const Comments = () => {
         {commentsList.map((item, index) => (
           <div key={index} className="border border-gray-300 p-4 rounded-lg">
             <p>Rating: {renderStars(item.rating)}</p>
+            <p>User: {item.userName}</p>
             <p>Comment: {item.comment}</p>
             <p>Date: {item.date}</p>
-            <p>User: {item.userName}</p>
           </div>
         ))}
       </div>
