@@ -5,6 +5,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  const [showMenu, setShowMenu] = useState(false);
+  const handleClick = () => {
+    setShowMenu(!showMenu);
+  };
+
   const toggleDropdown = () => {
     setIsOpen((prevState) => !prevState);
   };
@@ -26,22 +31,83 @@ const Navbar = () => {
     <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-lg">
       <div className="bg-[#F9D86C] py-3"></div>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link to="/ " className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link
+          to="/ "
+          className="flex items-center space-x-3 rtl:space-x-reverse"
+        >
           <span className="self-center text-2xl font-bold whitespace-nowrap dark:text-white">
             Our Gallery
           </span>
         </Link>
-        <div className="hidden md:flex md:space-x-8 rtl:space-x-reverse items-center" id="navbar-links">
-          <a href="#" className="text-gray-900 hover:text-blue-700">About us</a>
-          <a href="#" className="text-gray-900 hover:text-blue-700">Video</a>
-          <a href="#" className="text-gray-900 hover:text-blue-700">Art</a>
-          <a href="#" className="text-gray-900 hover:text-blue-700">Photo</a>
+        <div
+          className="hidden md:flex md:space-x-8 rtl:space-x-reverse items-center"
+          id="navbar-links"
+        >
+          <a href="#" className="text-gray-900 hover:text-blue-700">
+            About us
+          </a>
+          <a href="#" className="text-gray-900 hover:text-blue-700">
+            Video
+          </a>
+          <a href="#" className="text-gray-900 hover:text-blue-700">
+            Art
+          </a>
+          <a href="#" className="text-gray-900 hover:text-blue-700">
+            Photo
+          </a>
           <input
             type="text"
             id="search-navbar"
             className="block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search..."
           />
+          <button
+            onClick={handleClick}
+            id="dropdownUserAvatarButton"
+            data-dropdown-toggle="dropdownAvatar"
+            className="flex text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 absolute right-14 mr-96"
+            type="button"
+          >
+            <span className="sr-only">Open user menu</span>
+            <img
+              className="w-8 h-8 rounded-full"
+              src="./assets/orang.jpg"
+              alt=""
+            />
+          </button>
+          {showMenu && (
+            <div
+              id="dropdownAvatar"
+              className="fixed mt-56 bg-white divide-y divide-gray-100 right-7 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+            >
+              <ul
+                className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                aria-labelledby="dropdownUserAvatarButton"
+              >
+                <li>
+                  <Link
+                    to={"/dashboard/fasilitas"}
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={"/dashboard/edit-akun"}
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Edit Akun
+                  </Link>
+                </li>
+                <li>
+                  <a className="block px-4 py-2 hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">
+                    Log Out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
         <div className="flex md:order-2">
           <button
@@ -94,9 +160,7 @@ const Navbar = () => {
             />
           </div>
           {isOpen && (
-            <ul
-              className="md:hidden"
-            >
+            <ul className="md:hidden">
               <li>
                 <a
                   href="#"

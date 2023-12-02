@@ -1,7 +1,9 @@
-import { useState } from 'react';
+
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useParams } from 'react-router-dom';
+import Comments from "../components/detail/Comments";
+
 const Detail = () => {
     const dummyArtData = [ // minimize aja, cuman data dummy kok
       { id: 1, 
@@ -105,27 +107,16 @@ const Detail = () => {
       <div>
         <Navbar/>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-5">
-          <div className="flex h-auto max-w-full justify-center align-center rounded-lg grid-col-1" >
-            <a href={selectedArt.src}>
-            <img className="hover:object-none object-fill" src={selectedArt.src} alt={selectedArt.title} />
-            </a>
+        <div className="flex h-auto max-w-full justify-center align-center rounded-lg grid-col-1" >
+        <img src={selectedArt.src} alt={selectedArt.title} />
+        </div>
+        <div className="h-auto max-w-full rounded-lg grid-col-1">
+          <div>
+
           </div>
-          <div className="h-auto max-w-full rounded-lg grid-col-1">
-            <div className='grid grid-cols-6 gap-4'>
-              <h1 className='col-span-4 mb-4 text-4xl font-extrabold tracking-tight leading-none text-dark md:text-5xl lg:text-6xl'>{selectedArt.title}</h1>
-              <a className='col-span-2 mb-4 text-end' href="/">&larr;back</a>
-              <div className='grid grid-cols-5'>{stars}</div>
-              <p>{selectedArt.ratings}/5.0(1k)</p>
-              <h5 className='col-span-6 mb-4 text-4md font-bold text-gray-400 tracking-tight leading-none text-dark md:text-4md lg:text-6md'>{selectedArt.desc}</h5>
-              <div className='col-span-6 grid grid-cols-6 border-t'>
-                <p className='col-span-6 m-2'>created in : <br/> {selectedArt.created_in}</p>
-              </div>
-              <div className='col-span-6 grid grid-cols-6 border-t'>
-                <p className='col-span-6 m-2'>Artist :</p>
-                <p className='col-span-2 rounded-full bg-gray-900 text-white text-center'>{selectedArt.artist_name}</p>
-              </div>
-            </div>
-          </div>
+          
+        </div>
+        
         </div>
         <Footer/>
       </div>
@@ -133,4 +124,3 @@ const Detail = () => {
 };
 
 export default Detail;
-
