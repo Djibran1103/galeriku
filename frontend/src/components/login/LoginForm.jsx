@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -32,7 +31,7 @@ const LoginForm = () => {
   };
   return (
     <div className="block max-w p-16 bg-gray-100 mx-32 border shadow-xl border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-      <h1 className="font-bold text-center text-6xl text-[#004E64]">Login</h1>
+      <h1 className="font-bold text-center text-6xl text-[#E9615A] mb-8">Login for Artists</h1>
       <form onSubmit={handleSubmit}>
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           Email
@@ -62,9 +61,9 @@ const LoginForm = () => {
           Password
         </label>
         <div className="relative">
-          <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+          <div className="absolute inset-y-0 start-0 flexitems-center ps-3.5 pointer-events-none">
             <svg
-              className="w-4 h-4 text-gray-500 dark:text-white"
+              className="w-4 h-4 text-gray-500 dark:text-white mt-3"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -80,14 +79,23 @@ const LoginForm = () => {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
+          
         </div>
         <button
           type="submit"
-          className="text-white bg-[#004E64] w-[500px] text-center mt-10 place-content-center hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          className="text-white bg-[#E9615A] w-[500px] text-center mt-10 place-content-center hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
         >
           Masuk
         </button>
       </form>
+      <div className="flex justify-center ">
+        <p className="mt-2 text-center space-x-2.5">
+          Belum Daftar ? 
+          <Link to="/sign-in" className="ml-2 italic hover:text-blue-400">
+          Sign In
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };
