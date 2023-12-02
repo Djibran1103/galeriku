@@ -14,13 +14,9 @@ const Home = () => {
         <h1>© All rights reserved by the Artists</h1>
       </div>
       <Card />
+      <h1 className="text-center font-bold text-4xl mb-4">Our Artists</h1>
       <div className="flex justify-center">
-        <div className="grid grid-cols-4 gap-4">
           <CardComment />
-          <CardComment />
-          <CardComment />
-          <CardComment />
-        </div>
       </div>
       <div className="-bottom-20">
         <Footer />

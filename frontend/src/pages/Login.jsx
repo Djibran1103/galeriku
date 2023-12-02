@@ -29,11 +29,11 @@ const Login = () => {
               <img
                 src="./images/Logo-TrashIn.png"
                 className="h-20"
-                alt="TrashIN Logo"
+                alt="Desweb"
               />
 
               <span className=" whitespace-nowrap  font-black mt-3">
-                <img src="./images/rashIn.png" alt="" />
+                <img src="." alt="" />
               </span>
             </a>
           </div>
@@ -44,15 +44,11 @@ const Login = () => {
         <img
           className="object-cover w-full h-full"
           src="./images/logintps.jpg"
-          alt="tps image"
+          alt="login image"
         />
       </div>
     </aside>
   );
 };
 
-<<<<<<< HEAD
 export default Login;
-=======
-export default Login;
->>>>>>> 1be0dd5d5c9f18d0e9d95f6842ea85dc683ab8d5
