@@ -10,7 +10,7 @@ const Login = () => {
   return (
     <aside style={{ display: "flex", flexDirection: "row", height: "100vh" }}>
       <div className="sidebar">
-        <div className="h-screen flex flex-col justify-center bg-[#2FC8B0]">
+        <div className="h-screen flex flex-col justify-center bg-[#F9D86C]">
           {/* <div
             href="/"
             className="flex items-center h-20 justify-center ps-2.5 gap-1.5 mb-9 mt-6 ml-8"
@@ -24,26 +24,13 @@ const Login = () => {
               <img src="./images/rashIn.png" alt="" />
             </span>
           </div> */}
-          <div className="flex justify-center mb-10">
-            <a href="" className="flex items-center space-x-0.5 text-center ">
-              <img
-                src="./images/Logo-TrashIn.png"
-                className="h-20"
-                alt="TrashIN Logo"
-              />
-
-              <span className=" whitespace-nowrap  font-black mt-3">
-                <img src="./images/rashIn.png" alt="" />
-              </span>
-            </a>
-          </div>
           <LoginForm onLoginSuccess={handleLoginSuccess} />
         </div>
       </div>
       <div className="content" style={{ flex: 6 }}>
         <img
           className="object-cover w-full h-full"
-          src="./images/logintps.jpg"
+          src="./src/assets/bg-login.jpg"
           alt="tps image"
         />
       </div>
