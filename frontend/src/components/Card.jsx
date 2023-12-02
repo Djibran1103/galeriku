@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const Card = () => {
   return (
-    <div className="mx-2 mb-5">
+    <div className="mx-24 mb-5">
       <h1 className="text-center pt-8 pb-8 font-bold text-4xl">
         Check The New Arrival Art
       </h1>
@@ -33,6 +35,13 @@ const Card = () => {
             alt=""
           />
         </a>
+      </div>
+      <div className="flex items-center justify-center pt-5">
+          <Link to="/art">
+              <button className="rounded-full bg-white text-black outline outline-offset-2 outline-1 outline-[#E9615A] px-16 py-4 hover:text-white hover:bg-[#F9D86C]">
+                  View All
+              </button>
+          </Link>
       </div>
       <div>
         <h1 className="text-center pt-8 pb-8 font-bold text-4xl">
@@ -68,40 +77,56 @@ const Card = () => {
             />
           </a>
         </div>
+        <div className="flex items-center justify-center pt-5">
+          <Link to="/Videos">
+              <button className="rounded-full bg-white text-black outline outline-offset-2 outline-1 outline-[#E9615A] px-16 py-4 hover:text-white hover:bg-[#F9D86C]">
+                  View All
+              </button>
+          </Link>
+        </div>
       </div>
       <div>
         <h1 className="text-center pt-8 pb-8 font-bold text-4xl	">
           Check The New Photo
         </h1>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <a href="#">
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg"
-              alt=""
-            />
-          </a>
-          <a href="#">
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
-              alt=""
-            />
-          </a>
-          <a href="#">
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg"
-              alt=""
-            />
-          </a>
-          <a href="#">
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
-              alt=""
-            />
-          </a>
+        <div className="flex flex-col bg-gray-200 rounded-lg mx-24 ">
+          <div className="grid grid-cols md:grid-cols-2 gap-4 mx-4 my-4">
+            <a href="#">
+              <img
+                className="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg"
+                alt=""
+              />
+            </a>
+            <a href="#">
+              <img
+                className="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+                alt=""
+              />
+            </a>
+            <a href="#">
+              <img
+                className="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg"
+                alt=""
+              />
+            </a>
+            <a href="#">
+              <img
+                className="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
+                alt=""
+              />
+            </a>
+          </div>
+          <div className="flex items-center justify-center pt-5 pb-5">
+            <Link to="/images">
+              <button className="rounded-full bg-white text-black outline outline-offset-2 outline-1 outline-[#E9615A] px-16 py-4 hover:text-white hover:bg-[#F9D86C]">
+                  View All
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
