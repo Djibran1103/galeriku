@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReactPaginate from "react-paginate";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
@@ -8,63 +9,91 @@ const Art = () => {
       id: 1,
       title: "Art 1",
       src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
+      stars: 1,
     },
     {
       id: 2,
       title: "Art 2",
       src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+      stars: 2,
     },
     {
       id: 3,
       title: "Art 3",
       src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
+      stars: 4,
     },
     {
       id: 4,
       title: "Art 4",
       src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+      stars: 5,
     },
     {
       id: 5,
       title: "Art 5",
       src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
+      stars: 4,
     },
     {
       id: 6,
       title: "Art 6",
       src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
+      stars: 1,
     },
     {
       id: 7,
       title: "Art 7",
       src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
+      stars: 3,
     },
     {
       id: 8,
       title: "Art 8",
       src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
+      stars: 5,
     },
     {
       id: 9,
       title: "Art 9",
       src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
+      stars: 4,
     },
     {
       id: 10,
       title: "Art 10",
       src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
+      stars: 5,
     },
   ];
 
-  const itemsPerPage = 4; // Number of items to display per page
+  const handlePageClick = (data) => {
+    setCurrentPage(data.selected + 1);
+  };
+
+  const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = dummyArtData.slice(indexOfFirstItem, indexOfLastItem);
 
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
+  const renderStars = (numStars) => {
+    const yellowStarStyle = {
+      color: "#FFD700",
+    };
+    if (numStars > 0) {
+      return (
+        <div className="flex items-center">
+          <span style={yellowStarStyle}>
+            {"★".repeat(numStars)}
+          </span>
+          <span className="ml-1">{numStars}</span>
+          <span className="ml-1">/ 5</span>
+        </div>
+      );
+    }
+    return "";
   };
 
   return (
@@ -72,40 +101,38 @@ const Art = () => {
       <Navbar />
       <h5 className="text-gray-400 mt-8 ml-8">Home - Art</h5>
       <h1 className="font-bold text-3xl ml-8">Art</h1>
-      {currentItems.map((video) => (
-        <div key={video.id}>
-          <h2>{video.title}</h2>
-        </div>
-      ))}
+      <div className="grid grid-cols-3 gap-4 mx-8 mt-2">
+        {currentItems.map((art) => (
+          <div key={art.id}>
+            <img className="rounded-lg" src={art.src} alt={art.title} />
+            <h2>{art.title}</h2>
+            <div className="flex items-center mt-2">
+              {renderStars(art.stars)}
+            </div>
+          </div>
+        ))}
+      </div>
 
       <div className="flex justify-center items-center space-x-4 mt-6">
-        <button
-          onClick={() => paginate(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        {Array.from({
-          length: Math.ceil(dummyArtData.length / itemsPerPage),
-        }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => paginate(index + 1)}
-            className={`px-4 py-2 border rounded-md border-gray-300 ${
-              currentPage === index + 1 ? "bg-gray-200 font-bold" : "bg-white"
-            }`}
-          >
-            {index + 1}
-          </button>
-        ))}
-        <button
-          onClick={() => paginate(currentPage + 1)}
-          disabled={
+        <ReactPaginate
+          pageCount={Math.ceil(dummyArtData.length / itemsPerPage)}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={1}
+          onPageChange={handlePageClick}
+          containerClassName="pagination flex space-x-2"
+          pageClassName="px-4 py-2 border rounded-md border-gray-300 bg-white cursor-pointer"
+          activeClassName="bg-gray-200 font-bold"
+          previousClassName={`px-4 py-2 border rounded-md border-gray-300 ${
+            currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-white cursor-pointer"
+          }`}
+          nextClassName={`px-4 py-2 border rounded-md border-gray-300 ${
             currentPage === Math.ceil(dummyArtData.length / itemsPerPage)
-          }
-        >
-          Next
-        </button>
+              ? "bg-gray-300 cursor-not-allowed"
+              : "bg-white cursor-pointer"
+          }`}
+          previousLabel="Previous"
+          nextLabel="Next"
+        />
       </div>
 
       <Footer />

@@ -7,6 +7,8 @@ import Art from "./pages/Art";
 import Login from "./pages/Login";
 import SignIn from "./pages/SignIn";
 import Detail from "./pages/Detail";
+import AboutUs from "./pages/AboutUs";
+
 function App() {
   return (
     <Router>
@@ -14,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/videos" element={<Videos />} />
         <Route path="/images" element={<Images />} />
         <Route path="/art" element={<Art />} />

@@ -1,6 +1,8 @@
 import { useState } from "react";
+import ReactPaginate from "react-paginate";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+
 
 const Images = () => {
   const dummyImagesData = [
@@ -66,16 +68,16 @@ const Images = () => {
     },
   ];
 
-  const itemsPerPage = 9; // Number of items to display per page
+    const handlePageClick = (data) => {
+      setCurrentPage(data.selected + 1);
+    };
+
+  const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = dummyImagesData.slice(indexOfFirstItem, indexOfLastItem);
-
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
 
   const renderStars = (numStars) => {
     const yellowStarStyle = {
@@ -113,33 +115,25 @@ const Images = () => {
       </div>
 
       <div className="flex justify-center items-center space-x-4 mt-6">
-        <button
-          onClick={() => paginate(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        {Array.from({
-          length: Math.ceil(dummyImagesData.length / itemsPerPage),
-        }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => paginate(index + 1)}
-            className={`px-4 py-2 border rounded-md border-gray-300 ${
-              currentPage === index + 1 ? "bg-gray-200 font-bold" : "bg-white"
-            }`}
-          >
-            {index + 1}
-          </button>
-        ))}
-        <button
-          onClick={() => paginate(currentPage + 1)}
-          disabled={
+        <ReactPaginate
+          pageCount={Math.ceil(dummyImagesData.length / itemsPerPage)}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={1}
+          onPageChange={handlePageClick}
+          containerClassName="pagination flex space-x-2"
+          pageClassName="px-4 py-2 border rounded-md border-gray-300 bg-white cursor-pointer"
+          activeClassName="bg-gray-200 font-bold"
+          previousClassName={`px-4 py-2 border rounded-md border-gray-300 ${
+            currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-white cursor-pointer"
+          }`}
+          nextClassName={`px-4 py-2 border rounded-md border-gray-300 ${
             currentPage === Math.ceil(dummyImagesData.length / itemsPerPage)
-          }
-        >
-          Next
-        </button>
+              ? "bg-gray-300 cursor-not-allowed"
+              : "bg-white cursor-pointer"
+          }`}
+          previousLabel="Previous"
+          nextLabel="Next"
+        />
       </div>
 
       <Footer />
