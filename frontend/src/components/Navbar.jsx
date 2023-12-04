@@ -58,7 +58,6 @@ const Navbar = () => {
           className="hidden md:flex md:space-x-8 rtl:space-x-reverse items-center"
           id="navbar-links"
         >
-<<<<<<< HEAD
           <a href="#" className="text-gray-900 hover:text-blue-700">
             About us
           </a>
@@ -71,20 +70,6 @@ const Navbar = () => {
           <a href="/images" className="text-gray-900 hover:text-blue-700">
             Photo
           </a>
-=======
-          <Link to ="/aboutus" className="text-gray-900 hover:text-blue-700">
-            About Us
-          </Link>
-          <Link to ="/videos" className="text-gray-900 hover:text-blue-700">
-            Video
-          </Link>
-          <Link to ="/art" className="text-gray-900 hover:text-blue-700">
-            Art
-          </Link>
-          <Link to ="/images" className="text-gray-900 hover:text-blue-700">
-            Images
-          </Link>
->>>>>>> 6c734813ab558fce6367221e23c685ff6076a163
           <input
             type="text"
             id="search-navbar"
