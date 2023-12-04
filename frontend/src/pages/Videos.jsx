@@ -85,9 +85,7 @@ const Videos = () => {
     if (numStars > 0) {
       return (
         <div className="flex items-center">
-          <span style={yellowStarStyle}>
-            {"★".repeat(numStars)}
-          </span>
+          <span style={yellowStarStyle}>{"★".repeat(numStars)}</span>
           <span className="ml-1">{numStars}</span>
           <span className="ml-1">/ 5</span>
         </div>
@@ -104,10 +102,12 @@ const Videos = () => {
       <div className="grid grid-cols-3 gap-4 mx-8 mt-2">
         {currentItems.map((video) => (
           <div key={video.id}>
-            <video className="rounded-lg" controls>
-              <source src={video.src} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <Link to={`/detail/videos/${video.id}`}>
+              <video className="rounded-lg" controls>
+                <source src={video.src} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </Link>
             <h2>{video.title}</h2>
             <div className="flex items-center mt-2">
               {renderStars(video.stars)}
@@ -126,7 +126,9 @@ const Videos = () => {
           pageClassName="px-4 py-2 border rounded-md border-gray-300 bg-white cursor-pointer"
           activeClassName="bg-gray-200 font-bold"
           previousClassName={`px-4 py-2 border rounded-md border-gray-300 ${
-            currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-white cursor-pointer"
+            currentPage === 1
+              ? "bg-gray-300 cursor-not-allowed"
+              : "bg-white cursor-pointer"
           }`}
           nextClassName={`px-4 py-2 border rounded-md border-gray-300 ${
             currentPage === Math.ceil(dummyVideosData.length / itemsPerPage)
