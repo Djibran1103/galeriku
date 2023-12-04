@@ -15,7 +15,6 @@ const SignForm = () => {
     e.preventDefault();
 
     try {
-      // Lakukan validasi atau simpan ke database/penyimpanan yang sesuai
       if (
         !name ||
         !email ||
