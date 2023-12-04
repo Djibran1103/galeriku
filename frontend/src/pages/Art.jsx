@@ -142,7 +142,7 @@ const Art = () => {
       <div className="grid grid-cols-3 gap-4 mx-8 mt-2">
         {currentItems.map((art) => (
           <div key={art.id}>
-            <Link to={`/detail/${art.id}`}>
+            <Link to={`/detail/art/${art.id}`}>
               <img className="rounded-lg" src={art.src} alt={art.title} />
             </Link>
             <h2>{art.title}</h2>

@@ -3,7 +3,6 @@ import ReactPaginate from "react-paginate";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
-
 const Images = () => {
   const dummyImagesData = [
     {
@@ -68,9 +67,9 @@ const Images = () => {
     },
   ];
 
-    const handlePageClick = (data) => {
-      setCurrentPage(data.selected + 1);
-    };
+  const handlePageClick = (data) => {
+    setCurrentPage(data.selected + 1);
+  };
 
   const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
@@ -81,21 +80,19 @@ const Images = () => {
 
   const renderStars = (numStars) => {
     const yellowStarStyle = {
-      color: "#FFD700", 
+      color: "#FFD700",
     };
     if (numStars > 0) {
-        return (
-          <div className="flex items-center">
-            <span style={yellowStarStyle}>
-              {"★".repeat(numStars)}
-            </span>
-            <span className="ml-1">{numStars}</span>
-            <span className="ml-1">/ 5</span>
-          </div>
-        );
-      }
-      return "";
-    };
+      return (
+        <div className="flex items-center">
+          <span style={yellowStarStyle}>{"★".repeat(numStars)}</span>
+          <span className="ml-1">{numStars}</span>
+          <span className="ml-1">/ 5</span>
+        </div>
+      );
+    }
+    return "";
+  };
 
   return (
     <>
@@ -105,7 +102,9 @@ const Images = () => {
       <div className="grid grid-cols-3 gap-4 mx-8 mt-2">
         {currentItems.map((image) => (
           <div key={image.id}>
-            <img className="rounded-lg" src={image.src} alt={image.title} />
+            <Link to={`/detail/images/${image.id}`}>
+              <img className="rounded-lg" src={image.src} alt={image.title} />
+            </Link>
             <h2>{image.title}</h2>
             <div className="flex items-center mt-2">
               {renderStars(image.stars)}
@@ -124,7 +123,9 @@ const Images = () => {
           pageClassName="px-4 py-2 border rounded-md border-gray-300 bg-white cursor-pointer"
           activeClassName="bg-gray-200 font-bold"
           previousClassName={`px-4 py-2 border rounded-md border-gray-300 ${
-            currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-white cursor-pointer"
+            currentPage === 1
+              ? "bg-gray-300 cursor-not-allowed"
+              : "bg-white cursor-pointer"
           }`}
           nextClassName={`px-4 py-2 border rounded-md border-gray-300 ${
             currentPage === Math.ceil(dummyImagesData.length / itemsPerPage)
