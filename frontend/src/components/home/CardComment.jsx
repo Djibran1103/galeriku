@@ -21,7 +21,7 @@ const CardComment = () => {
   const RightArrow = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-5 text-gray-600"
+      className="h-5 w-5 text-gray-600 "
       viewBox="0 0 20 20"
       fill="currentColor"
     >
@@ -47,7 +47,7 @@ const CardComment = () => {
       content: "Mengapa selama ini ternyata menyukai videoku cuman malu malu ngomongnya awokwokwok"
     },
     {
-        title: "Devan A.C",
+        title: "Devan A.D",
         content: "Kalian semua mendokse, just nikmati"
       },
     // Add more dummy card data as needed
@@ -75,7 +75,7 @@ const CardComment = () => {
                   <h1 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                     {card.title}
                   </h1>
-                  <p>{card.content}</p>
+                  <p className="dark:text-gray-400">{card.content}</p>
                 </a>
                 {/* Additional card content here */}
               </div>
@@ -84,7 +84,7 @@ const CardComment = () => {
         ))}
       </div>
       <button
-        className={`absolute top-1/2 transform -translate-y-1/2 left-0 px-4 py-2 bg-gray-300 rounded ${
+        className={`absolute top-1/2 transform -translate-y-1/2 left-0 px-4 py-2 bg-gray-300 dark:bg-slate-900 dark:hover:bg-gray-300 rounded ${
           offset === 0 ? "opacity-50 cursor-not-allowed" : "opacity-100"
         }`}
         onClick={() => slideCards(1)}
@@ -93,7 +93,7 @@ const CardComment = () => {
         <LeftArrow />
       </button>
       <button
-        className={`absolute top-1/2 transform -translate-y-1/2 right-0 px-4 py-2 bg-gray-300 rounded ${
+        className={`absolute top-1/2 transform -translate-y-1/2 right-0 px-4 py-2 bg-gray-300 dark:bg-slate-900 dark:hover:bg-gray-300 rounded ${
           offset === -(cards.length - 1) * 340 ? "opacity-50 cursor-not-allowed" : "opacity-100"
         }`}
         onClick={() => slideCards(-1)}

@@ -7,7 +7,7 @@ const Banner = () => {
     navigate("/login");
   };
   return (
-    <section className=" bg-no-repeat bg-[url('https://api-cdn.figma.com/resize/img/40e4/04e7/1112444da1295506c5f14d9defc417db?expiration=1702252800&signature=1a3738055524a181bda6731cef2303c3f5afcc58a6c61b5d88b6e82490a44b00&maxsize=2048&bucket=figma-alpha')] bg-white-700 bg-blend-clear bg-cover">
+    <section className=" bg-no-repeat bg-[url('https://api-cdn.figma.com/resize/img/40e4/04e7/1112444da1295506c5f14d9defc417db?expiration=1702252800&signature=1a3738055524a181bda6731cef2303c3f5afcc58a6c61b5d88b6e82490a44b00&maxsize=2048&bucket=figma-alpha')] bg-white bg-blend-clear bg-cover">
       <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-dark md:text-5xl lg:text-6xl">
           Selamat datang <br /> di Our Gallery

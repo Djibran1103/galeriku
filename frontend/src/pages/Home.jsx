@@ -7,14 +7,14 @@ import CardComment from "../components/home/CardComment";
 
 const Home = () => {
   return (
-    <div>
+    <div className="dark:bg-slate-800">
       <Navbar />
       <Banner />
       <div className="bg-[#E9615A] text-white font-bold text-3xl py-2 text-center">
         <h1>© All rights reserved by the Artists</h1>
       </div>
       <Card />
-      <h1 className="text-center font-bold text-4xl mb-4">Our Artists</h1>
+      <h1 className="text-center font-bold text-4xl mb-4 dark:text-white">Our Artists</h1>
       <div className="flex justify-center">
           <CardComment />
       </div>
