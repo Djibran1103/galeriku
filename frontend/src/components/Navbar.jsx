@@ -101,9 +101,11 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <a className="block px-4 py-2 hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">
-                    Log Out
-                  </a>
+                  <div className="block px-4 py-2 hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">
+                    <button>
+                      Log Outs
+                    </button>
+                  </div>
                 </li>
               </ul>
             </div>
