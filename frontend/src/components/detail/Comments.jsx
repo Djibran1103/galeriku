@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Comments = () => {
-  const [rating, setRating] = useState(0); 
+  const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const [userName, setUserName] = useState("");
   const [commentsList, setCommentsList] = useState([]);
@@ -39,7 +39,7 @@ const Comments = () => {
 
   const renderStars = (numStars) => {
     const yellowStarStyle = {
-      color: "#FFD700", 
+      color: "#FFD700",
     };
     if (numStars > 0) {
       return <span style={yellowStarStyle}>{"★".repeat(numStars)}</span>;
@@ -48,7 +48,7 @@ const Comments = () => {
   };
 
   return (
-    <div className="border border-gray-300 p-4 rounded-lg mb-4">
+    <div className="border border-gray-300 p-4 rounded-lg mb-4 mx-5">
       <h3 className="text-lg font-semibold mb-2">Pendapat Anda</h3>
       <form onSubmit={handleSubmit}>
         <input

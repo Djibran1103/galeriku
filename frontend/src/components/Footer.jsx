@@ -3,7 +3,7 @@ import MessageCard from "./home/MessageCard";
 const Footer = () => {
   return (
     <footer>
-      <div className=" bg-[#F0F0F0] dark:bg-gray-90 mx-auto mt-28 w-full py-6 p-4 lg:py-8">
+      <div className=" bg-[#F0F0F0] dark:bg-slate-900 mx-auto mt-28 w-full py-6 p-4 lg:py-8">
         <div className="-mt-28">
           <MessageCard />
         </div>

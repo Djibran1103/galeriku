@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +28,21 @@ const Navbar = () => {
     };
   }, []);
 
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    try {
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+      localStorage.removeItem("islogin");
+      window.alert("Logout Success");
+
+      navigate("/login");
+    } catch (error) {
+      window.alert("Terdapat kesalahan saat logout" + error.message);
+    }
+  };
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-lg">
       <div className="bg-[#F9D86C] py-3"></div>
@@ -43,18 +59,18 @@ const Navbar = () => {
           className="hidden md:flex md:space-x-8 rtl:space-x-reverse items-center"
           id="navbar-links"
         >
-          <Link to ="/aboutus" className="text-gray-900 hover:text-blue-700">
-            About Us
-          </Link>
-          <Link to ="/videos" className="text-gray-900 hover:text-blue-700">
+          <a href="#" className="text-gray-900 hover:text-blue-700 dark:text-white">
+            About us
+          </a>
+          <a href="/videos" className="text-gray-900 hover:text-blue-700 dark:text-white">
             Video
-          </Link>
-          <Link to ="/art" className="text-gray-900 hover:text-blue-700">
+          </a>
+          <a href="/art" className="text-gray-900 hover:text-blue-700 dark:text-white">
             Art
-          </Link>
-          <Link to ="/images" className="text-gray-900 hover:text-blue-700">
-            Images
-          </Link>
+          </a>
+          <a href="/images" className="text-gray-900 hover:text-blue-700 dark:text-white">
+            Photo
+          </a>
           <input
             type="text"
             id="search-navbar"
@@ -76,38 +92,43 @@ const Navbar = () => {
             />
           </button>
           {showMenu && (
-            <div
-              id="dropdownAvatar"
-              className="fixed mt-56 bg-white divide-y divide-gray-100 right-7 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-            >
-              <ul
-                className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownUserAvatarButton"
+            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+              <div
+                id="dropdownAvatar"
+                className="fixed mt-56 bg-white divide-y divide-gray-100 right-7 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
               >
-                <li>
-                  <Link
-                    to={"/dashboard/fasilitas"}
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to={"/dashboard/edit-akun"}
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Edit Akun
-                  </Link>
-                </li>
-                <li>
-                  <div className="block px-4 py-2 hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white">
-                    <button>
-                      Log Outs
+                <ul
+                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownUserAvatarButton"
+                >
+                  <li>
+                    <Link
+                      to={"/dashboard/fasilitas"}
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={"/dashboard/edit-akun"}
+                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Edit Akun
+                    </Link>
+                  </li>
+                  <li>
+                    <button
+                      onClick={handleLogout}
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      type="button"
+                    >
+                      <span className="sr-only">Logout</span>
+                      Logout
                     </button>
-                  </div>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           )}
         </div>
