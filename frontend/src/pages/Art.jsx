@@ -2,6 +2,7 @@ import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 const Art = () => {
   const [dummyArtData, setDummyArtData] = useState([
@@ -141,7 +142,9 @@ const Art = () => {
       <div className="grid grid-cols-3 gap-4 mx-8 mt-2">
         {currentItems.map((art) => (
           <div key={art.id}>
-            <img className="rounded-lg" src={art.src} alt={art.title} />
+            <Link to={`/detail/${art.id}`}>
+              <img className="rounded-lg" src={art.src} alt={art.title} />
+            </Link>
             <h2>{art.title}</h2>
             <div className="flex items-center mt-2">
               {renderStars(art.stars)}
@@ -151,7 +154,12 @@ const Art = () => {
       </div>
 
       <div className="flex flex-col justify-center mt-6 mx-8">
-        <button className="font-bold text-xl mb-2 bg-[#E9615A] mx-auto p-2 rounded-lg text-white hover:bg-[#F9D86C]" onClick={toggleForm}>Upload New Art</button>
+        <button
+          className="font-bold text-xl mb-2 bg-[#E9615A] mx-auto p-2 rounded-lg text-white hover:bg-[#F9D86C]"
+          onClick={toggleForm}
+        >
+          Upload New Art
+        </button>
         {showForm && (
           <form onSubmit={handleFormSubmit} className="space-y-4">
             <div className="flex flex-col mb-4">
@@ -214,7 +222,7 @@ const Art = () => {
               Submit
             </button>
           </form>
-        )}  
+        )}
       </div>
 
       <div className="flex justify-center items-center space-x-4 mt-6">
