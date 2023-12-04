@@ -27,6 +27,21 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleLogout = () => {
+    try {
+      // Hapus data yang tersimpan di localStorage
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+      localStorage.removeItem("islogin");
+      window.alert("Logout Success");
+      // Lakukan navigasi atau aksi lainnya setelah logout
+      // Contoh: kembali ke halaman login
+      navigate("/login"); // Ganti "/login" dengan rute yang sesuai
+    } catch (error) {
+      window.alert("Terdapat kesalahan saat logout" + error.message);
+    }
+  };
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-lg">
       <div className="bg-[#F9D86C] py-3"></div>
@@ -46,13 +61,13 @@ const Navbar = () => {
           <a href="#" className="text-gray-900 hover:text-blue-700">
             About us
           </a>
-          <a href="#" className="text-gray-900 hover:text-blue-700">
+          <a href="/videos" className="text-gray-900 hover:text-blue-700">
             Video
           </a>
-          <a href="#" className="text-gray-900 hover:text-blue-700">
+          <a href="/art" className="text-gray-900 hover:text-blue-700">
             Art
           </a>
-          <a href="#" className="text-gray-900 hover:text-blue-700">
+          <a href="/images" className="text-gray-900 hover:text-blue-700">
             Photo
           </a>
           <input
