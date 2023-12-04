@@ -158,6 +158,7 @@ const Detail = () => {
               <p className="col-span-2 rounded-full bg-gray-900 text-white text-center">
                 {selectedArt.artist_name}
               </p>
+              <br />
               <button className="col-span-2 rounded-full bg-gray-900 text-white text-center">
                 <span className="sr-only">Download</span>
                 Download
