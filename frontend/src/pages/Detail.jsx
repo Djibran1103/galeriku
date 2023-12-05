@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { useParams } from "react-router-dom";
+import { useParams , Link } from "react-router-dom";
 import Comments from "../components/detail/Comments";
 
 const Detail = () => {
@@ -285,8 +285,15 @@ const Detail = () => {
       artist_name:"Edward Vladislav",
       genre:"image"
     },
-
   ];
+
+  const handleDownload = () => {
+    const downloadLink = document.createElement('a');
+    downloadLink.href = selectedData.src;
+    downloadLink.download = `${selectedData.title}.${selectedData.genre}`;
+    downloadLink.click();
+  };
+
   const { id, genre } = useParams();
   const selectedData = dummyData.find((data) => data.id === parseInt(id, 10) && data.genre === genre);
   if (!selectedData) {
@@ -336,7 +343,7 @@ const Detail = () => {
                 {selectedData.artist_name}
               </p>
               <br />
-              <button className="col-span-2 rounded-full bg-gray-900 text-white text-center">
+              <button className="col-span-2 rounded-full bg-gray-900 text-white text-center" onClick={handleDownload}>
                 <span className="sr-only">Download</span>
                 Download
               </button>

@@ -46,7 +46,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-lg">
+    <nav className="sticky top-0 z-50 bg-white border-gray-200 dark:bg-gray-900 shadow-lg">
       <div className="bg-[#F9D86C] py-3"></div>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
@@ -61,18 +61,18 @@ const Navbar = () => {
           className="hidden md:flex md:space-x-8 rtl:space-x-reverse items-center"
           id="navbar-links"
         >
-          <a href="#" className="text-gray-900 hover:text-blue-700 dark:text-white">
+          <Link to="/aboutus" className="text-gray-900 hover:text-blue-700 dark:text-white">
             About us
-          </a>
-          <a href="/videos" className="text-gray-900 hover:text-blue-700 dark:text-white">
+          </Link>
+          <Link to="/videos" className="text-gray-900 hover:text-blue-700 dark:text-white">
             Video
-          </a>
-          <a href="/art" className="text-gray-900 hover:text-blue-700 dark:text-white">
+          </Link>
+          <Link to="/art" className="text-gray-900 hover:text-blue-700 dark:text-white">
             Art
-          </a>
-          <a href="/images" className="text-gray-900 hover:text-blue-700 dark:text-white">
+          </Link>
+          <Link to="/images" className="text-gray-900 hover:text-blue-700 dark:text-white">
             Photo
-          </a>
+          </Link>
           <input
             type="text"
             id="search-navbar"

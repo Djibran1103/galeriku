@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Banner = () => {
   const navigate = useNavigate();
@@ -6,6 +6,7 @@ const Banner = () => {
   const handleSignInClick = () => {
     navigate("/login");
   };
+
   return (
     <section className=" bg-no-repeat bg-[url('https://api-cdn.figma.com/resize/img/40e4/04e7/1112444da1295506c5f14d9defc417db?expiration=1702252800&signature=1a3738055524a181bda6731cef2303c3f5afcc58a6c61b5d88b6e82490a44b00&maxsize=2048&bucket=figma-alpha')] bg-white bg-blend-clear bg-cover">
       <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
@@ -17,9 +18,9 @@ const Banner = () => {
           video dan berbagai macam hal lainnya.
         </p>
         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-          <a
-            href="login"
-            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+          <Link
+            to="/login"
+            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-[#E9615A] hover:bg-[#F9D86C] focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
             onClick={handleSignInClick}
           >
             Sign in
@@ -38,13 +39,13 @@ const Banner = () => {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/aboutus"
             className="inline-flex justify-center hover:text-white items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-dark rounded-lg border border-black hover:bg-gray-900 focus:ring-4 focus:ring-gray-400"
           >
             Learn more
-          </a>
+          </Link>
         </div>
       </div>
     </section>
