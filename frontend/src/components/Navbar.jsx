@@ -43,6 +43,8 @@ const Navbar = () => {
     }
   };
 
+
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-lg">
       <div className="bg-[#F9D86C] py-3"></div>
@@ -103,7 +105,7 @@ const Navbar = () => {
                 >
                   <li>
                     <Link
-                      to={"/dashboard/fasilitas"}
+                      to={"/dashboard"}
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       Dashboard
@@ -185,36 +187,32 @@ const Navbar = () => {
           {isOpen && (
             <ul className="md:hidden">
               <li>
-                <a
-                  href="#"
+                <Link to="/aboutus"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >
                   About us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link to="/videos"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >
                   Video
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link to="/art"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >
                   Art
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link to="/images"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >
                   Photo
-                </a>
+                </Link>
               </li>
             </ul>
           )}
