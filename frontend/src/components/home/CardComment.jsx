@@ -76,12 +76,26 @@ const CardComment = () => {
       content:
         "Situs ini adalah sumber tak ternilai untuk seni visual. Saya menemukan banyak ide dan nuansa yang membantu saya berkembang dalam gaya seni saya sendiri.",
     },
-    // Add more dummy card data as needed
+    {
+      title: "Farhan I.J",
+      content:
+        "Situs ini adalah sumber tak ternilai untuk seni visual. Saya menemukan banyak ide dan nuansa yang membantu saya berkembang dalam gaya seni saya sendiri.",
+    },
+    {
+      title: "Farhan I.J",
+      content:
+        "Situs ini adalah sumber tak ternilai untuk seni visual. Saya menemukan banyak ide dan nuansa yang membantu saya berkembang dalam gaya seni saya sendiri.",
+    },
+    {
+      title: "Farhan I.J",
+      content:
+        "Situs ini adalah sumber tak ternilai untuk seni visual. Saya menemukan banyak ide dan nuansa yang membantu saya berkembang dalam gaya seni saya sendiri.",
+    },
   ];
 
   const slideCards = (direction) => {
-    const cardWidth = 340; // Card width + margin/padding
-    const maxOffset = (cards.length - 1) * cardWidth; // Adjust for more cards
+    const cardWidth = 340;
+    const maxOffset = (cards.length - 1) * cardWidth;
     let newOffset = offset + direction * cardWidth;
     newOffset = Math.min(0, Math.max(-maxOffset, newOffset));
     setOffset(newOffset);
@@ -93,21 +107,20 @@ const CardComment = () => {
         className="flex transition-transform duration-300"
         style={{ transform: `translateX(${offset}px)` }}
       >
-        {cards.map((card, index) => (
-          <div key={index} className="mx-2">
-            <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <div className="px-5 py-5">
-                <a href="#">
-                  <h1 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {card.title}
-                  </h1>
-                  <p className="dark:text-gray-400">{card.content}</p>
-                </a>
-                {/* Additional card content here */}
+         {cards.map((card, index) => (
+            <div key={index} className="mx-2 flex-shrink-0 w-72">
+              <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div className="px-5 py-5">
+                  <a href="#">
+                    <h1 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                      {card.title}
+                    </h1>
+                    <p className="dark:text-gray-400">{card.content}</p>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
       <button
         className={`absolute top-1/2 transform -translate-y-1/2 left-0 px-4 py-2 bg-gray-300 dark:bg-slate-900 dark:hover:bg-gray-300 rounded ${
