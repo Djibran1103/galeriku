@@ -54,6 +54,7 @@ const Navbar = () => {
           to="/ "
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
+          <img src="./src/assets/icon.png" className="w-8 h-8"/>
           <h1 className="self-center text-2xl font-bold whitespace-nowrap dark:text-white">
             Our Gallery
           </h1>
