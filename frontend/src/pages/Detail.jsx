@@ -353,7 +353,40 @@ const Detail = () => {
       </div>
       <Comments />
       <h1 className="text-center font-bold text-3xl"> Rekomendasi Lainnya </h1>
-      
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mx-24 mt-2">
+        <Link to="/detail/art/1">
+            <img
+              className="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
+              alt=""
+            />
+            <h1 className="text-center">Gambar 1</h1>
+          </Link>
+          <Link to="/detail/art/2">
+            <img
+              className="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+              alt=""
+            />
+            <h1 className="text-center">Gambar 2</h1>
+          </Link>
+          <Link to="/detail/art/3">
+            <img
+              className="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+              alt=""
+            />
+            <h1 className="text-center">Gambar 3</h1>
+          </Link>
+          <Link to="/detail/art/4">
+            <img
+              className="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
+              alt=""
+            />
+            <h1 className="text-center">Gambar 4</h1>
+          </Link>
+      </div>
       <Footer />
     </div>
   );
