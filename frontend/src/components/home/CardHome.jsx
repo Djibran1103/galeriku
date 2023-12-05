@@ -7,19 +7,35 @@ const Card = () => {
         Check The New Arrival Art
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <Link to="/detail/art/1">
+        <Link to="/detail/art/1">
           <img
             className="h-auto max-w-full rounded-lg"
             src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
             alt=""
           />
+          <div className="mt-2 text-center">
+          <h3 className="text-lg font-semibold">Artwork 1</h3>
+            <div className="flex items-center justify-center">
+              <span className="text-yellow-500">&#9733;</span>
+              <span className="ml-1">4.5</span>
+            </div>
+          </div>
         </Link>
+        
+        
         <Link to="/detail/art/2">
           <img
             className="h-auto max-w-full rounded-lg"
             src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
             alt=""
           />
+          <div className="mt-2 text-center">
+          <h3 className="text-lg font-semibold">Artwork 1</h3>
+            <div className="flex items-center justify-center">
+              <span className="text-yellow-500">&#9733;</span>
+              <span className="ml-1">4.5</span>
+            </div>
+          </div>
         </Link>
         <Link to="/detail/art/3">
           <img
@@ -27,6 +43,13 @@ const Card = () => {
             src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
             alt=""
           />
+          <div className="mt-2 text-center">
+          <h3 className="text-lg font-semibold">Artwork 1</h3>
+            <div className="flex items-center justify-center">
+              <span className="text-yellow-500">&#9733;</span>
+              <span className="ml-1">4.5</span>
+            </div>
+          </div>
         </Link>
         <Link to="/detail/art/4">
           <img
@@ -34,6 +57,13 @@ const Card = () => {
             src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
             alt=""
           />
+          <div className="mt-2 text-center">
+          <h3 className="text-lg font-semibold">Artwork 1</h3>
+            <div className="flex items-center justify-center">
+              <span className="text-yellow-500">&#9733;</span>
+              <span className="ml-1">4.5</span>
+            </div>
+          </div>
         </Link>
       </div>
       <div className="flex items-center justify-center pt-5">
@@ -54,6 +84,13 @@ const Card = () => {
               src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
               alt=""
             />
+            <div className="mt-2 text-center">
+            <h3 className="text-lg font-semibold">Artwork 1</h3>
+              <div className="flex items-center justify-center">
+                <span className="text-yellow-500">&#9733;</span>
+                <span className="ml-1">4.5</span>
+              </div>
+            </div>
           </Link>
           <Link to="/detail/video/2">
             <img
@@ -61,6 +98,13 @@ const Card = () => {
               src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
               alt=""
             />
+            <div className="mt-2 text-center">
+            <h3 className="text-lg font-semibold">Artwork 1</h3>
+              <div className="flex items-center justify-center">
+                <span className="text-yellow-500">&#9733;</span>
+                <span className="ml-1">4.5</span>
+              </div>
+            </div>
           </Link>
           <Link to="/detail/video/3">
             <img
@@ -68,6 +112,13 @@ const Card = () => {
               src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg"
               alt=""
             />
+            <div className="mt-2 text-center">
+            <h3 className="text-lg font-semibold">Artwork 1</h3>
+              <div className="flex items-center justify-center">
+                <span className="text-yellow-500">&#9733;</span>
+                <span className="ml-1">4.5</span>
+              </div>
+            </div>
           </Link>
           <Link to="/detail/video/4">
             <img
@@ -75,6 +126,13 @@ const Card = () => {
               src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg"
               alt=""
             />
+            <div className="mt-2 text-center">
+            <h3 className="text-lg font-semibold">Artwork 1</h3>
+              <div className="flex items-center justify-center">
+                <span className="text-yellow-500">&#9733;</span>
+                <span className="ml-1">4.5</span>
+              </div>
+            </div>
           </Link>
         </div>
         <div className="flex items-center justify-center pt-5">
