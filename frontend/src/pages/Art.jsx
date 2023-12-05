@@ -74,36 +74,37 @@ const Art = () => {
 
   const [newArt, setnewArt] = useState({
     title: "",
-    imageUrl: "",
+    artUrl: "",
     stars: 0,
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setnewArt((prevImage) => ({
-      ...prevImage,
+    setnewArt((prevArt) => ({
+      ...prevArt,
       [name]: value,
     }));
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
-    const newArt = {
+  
+    const newArtItem = {
       id: dummyArtData.length + 1,
       title: newArt.title,
-      src: newArt.imageUrl,
+      src: newArt.artUrl,
       stars: parseInt(newArt.stars, 10),
     };
-
-    setDummyArtData((prevData) => [...prevData, newArt]);
-
+  
+    setDummyArtData((prevData) => [...prevData, newArtItem]);
+  
     setnewArt({
       title: "",
-      imageUrl: "",
+      artUrl: "",
       stars: 0,
     });
   };
+  
 
   const [showForm, setShowForm] = useState(false);
 
@@ -181,16 +182,16 @@ const Art = () => {
             </div>
             <div className="flex flex-col mb-4">
               <label
-                htmlFor="imageUrl"
+                htmlFor="artUrl"
                 className="text-sm font-semibold text-gray-600"
               >
-                Image URL:
+                Art URL:
               </label>
               <input
                 type="url"
-                id="imageUrl"
-                name="imageUrl"
-                value={newArt.imageUrl}
+                id="artUrl"
+                name="artUrl"
+                value={newArt.artUrl}
                 onChange={handleInputChange}
                 required
                 className="px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
