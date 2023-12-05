@@ -2,9 +2,10 @@ import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 const Images = () => {
-  const [dummyImagesData, setDummyImagesData] = useState([
+  const [dummyImageData, setDummyImageData] = useState([
     {
       id: 1,
       title: "Image 1",
@@ -89,13 +90,13 @@ const Images = () => {
     e.preventDefault();
 
     const newImageItem = {
-      id: dummyImagesData.length + 1,
+      id: dummyImageData.length + 1,
       title: newImage.title,
       src: newImage.imageUrl,
       stars: parseInt(newImage.stars, 10),
     };
 
-    setDummyImagesData((prevData) => [...prevData, newImageItem]);
+    setDummyImageData((prevData) => [...prevData, newImageItem]);
 
     setNewImage({
       title: "",
@@ -115,7 +116,7 @@ const Images = () => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = dummyImagesData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = dummyImageData.slice(indexOfFirstItem, indexOfLastItem);
 
   const renderStars = (numStars) => {
     const yellowStarStyle = {
@@ -226,7 +227,7 @@ const Images = () => {
 
       <div className="flex justify-center items-center space-x-4 mt-6">
         <ReactPaginate
-          pageCount={Math.ceil(dummyImagesData.length / itemsPerPage)}
+          pageCount={Math.ceil(dummyImageData.length / itemsPerPage)}
           pageRangeDisplayed={3}
           marginPagesDisplayed={1}
           onPageChange={handlePageClick}
@@ -239,7 +240,7 @@ const Images = () => {
               : "bg-white cursor-pointer"
           }`}
           nextClassName={`px-4 py-2 border rounded-md border-gray-300 ${
-            currentPage === Math.ceil(dummyImagesData.length / itemsPerPage)
+            currentPage === Math.ceil(dummyImageData.length / itemsPerPage)
               ? "bg-gray-300 cursor-not-allowed"
               : "bg-white cursor-pointer"
           }`}
