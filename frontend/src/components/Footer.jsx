@@ -18,10 +18,10 @@ const Footer = () => {
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4 mr-4">
                   <p>
-                  We have content that suits your style and which you’re
+                  Disini kalian dapat memperlihatkan karya kalian
                   </p>
                   <p>
-                  proud to showoff to every continent of this world.
+                  komunitas untuk menghargai karya bangsa.
                   </p>
                 </li>
               </ul>

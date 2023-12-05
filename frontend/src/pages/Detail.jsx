@@ -352,6 +352,8 @@ const Detail = () => {
         </div>
       </div>
       <Comments />
+      <h1 className="text-center font-bold text-3xl"> Rekomendasi Lainnya </h1>
+      
       <Footer />
     </div>
   );
