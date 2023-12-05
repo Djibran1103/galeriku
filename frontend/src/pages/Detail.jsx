@@ -316,7 +316,7 @@ const Detail = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-5">
         <div className="flex h-auto max-w-full justify-center align-center rounded-lg grid-col-1">
           <a href={selectedData.src}>
-          {selectedData.genre === "art" || selectedData.genre === "image" ? <a href={selectedData.src}><img className="hover:object-none object-fill" src={selectedData.src} alt={selectedData.title} /> </a>: <iframe width="560" height="315" src={selectedData.src} alt={selectedData.title}></iframe>}
+          {selectedData.genre === "art" || selectedData.genre === "image" ? <a href={selectedData.src}><img className="hover:object-none object-fill rounded-lg" src={selectedData.src} alt={selectedData.title} /> </a>: <iframe width="560" height="315" src={selectedData.src} alt={selectedData.title}></iframe>}
           </a>
         </div>
         <div className="h-auto max-w-full rounded-lg grid-col-1">
