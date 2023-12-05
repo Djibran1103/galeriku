@@ -13,7 +13,7 @@ const Banner = () => {
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-dark md:text-5xl lg:text-6xl">
           Selamat datang <br /> di Our Gallery
         </h1>
-        <p className="mb-8 text-lg font-normal text-dark-300 lg:text-xl sm:px-16 lg:px-48">
+        <p className="mb-8 text-lg font-normal text-dark-300 lg:text-xl sm:px-16 lg:px-96">
           Lihatlah galeri online atas karya anak bangsa dari seni lukis, foto,
           video dan berbagai macam hal lainnya.
         </p>
