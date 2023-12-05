@@ -71,7 +71,7 @@ const Images = () => {
     setCurrentPage(data.selected + 1);
   };
 
-  const [newImage, setnewImage] = useState({
+  const [newImage, setNewImage] = useState({
     title: "",
     imageUrl: "",
     stars: 0,
@@ -79,7 +79,7 @@ const Images = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setnewImage((prevImage) => ({
+    setNewImage((prevImage) => ({
       ...prevImage,
       [name]: value,
     }));
@@ -88,14 +88,14 @@ const Images = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const newImage = {
+    const newImageItem = {
       id: dummyImagesData.length + 1,
       title: newImage.title,
       src: newImage.imageUrl,
       stars: parseInt(newImage.stars, 10),
     };
 
-    setDummyImagesData((prevData) => [...prevData, newImage]);
+    setDummyImagesData((prevData) => [...prevData, newImageItem]);
 
     setNewImage({
       title: "",
