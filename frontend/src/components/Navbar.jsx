@@ -1,12 +1,13 @@
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-
   const [showMenu, setShowMenu] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
   const handleClick = () => {
     setShowMenu(!showMenu);
   };
@@ -28,29 +29,32 @@ const Navbar = () => {
     };
   }, []);
 
-  const navigate = useNavigate();
-
   const handleLogout = () => {
     try {
       localStorage.removeItem("email");
       localStorage.removeItem("password");
       localStorage.removeItem("islogin");
       window.alert("Logout Success");
-
       navigate("/login");
     } catch (error) {
       window.alert("Terdapat kesalahan saat logout" + error.message);
     }
   };
 
+  const pagePaths = ["/aboutus", "/videos", "/art", "/images"];
+  const filteredPagePaths = pagePaths.filter((path) =>
+    path.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-lg">
+    <nav className="sticky top-0 z-50 bg-white border-gray-200 dark:bg-gray-900 shadow-lg">
       <div className="bg-[#F9D86C] py-3"></div>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           to="/ "
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
+          <img src="./src/assets/icon.png" className="w-8 h-8"/>
           <h1 className="self-center text-2xl font-bold whitespace-nowrap dark:text-white">
             Our Gallery
           </h1>
@@ -59,24 +63,52 @@ const Navbar = () => {
           className="hidden md:flex md:space-x-8 rtl:space-x-reverse items-center"
           id="navbar-links"
         >
-          <a href="#" className="text-gray-900 hover:text-blue-700 dark:text-white">
+          <Link
+            to="/aboutus"
+            className="text-gray-900 hover:text-blue-700 dark:text-white"
+          >
             About us
-          </a>
-          <a href="/videos" className="text-gray-900 hover:text-blue-700 dark:text-white">
+          </Link>
+          <Link
+            to="/videos"
+            className="text-gray-900 hover:text-blue-700 dark:text-white"
+          >
             Video
-          </a>
-          <a href="/art" className="text-gray-900 hover:text-blue-700 dark:text-white">
+          </Link>
+          <Link
+            to="/art"
+            className="text-gray-900 hover:text-blue-700 dark:text-white"
+          >
             Art
-          </a>
-          <a href="/images" className="text-gray-900 hover:text-blue-700 dark:text-white">
+          </Link>
+          <Link
+            to="/images"
+            className="text-gray-900 hover:text-blue-700 dark:text-white"
+          >
             Photo
-          </a>
+          </Link>
           <input
             type="text"
             id="search-navbar"
             className="block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
+          {isOpen && (
+            <ul className="md:hidden">
+              {filteredPagePaths.map((path) => (
+                <li key={path}>
+                  <Link
+                    to={path}
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                  >
+                    {path.replace("/", "")}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
           <button
             onClick={handleClick}
             id="dropdownUserAvatarButton"
@@ -103,7 +135,7 @@ const Navbar = () => {
                 >
                   <li>
                     <Link
-                      to={"/dashboard/fasilitas"}
+                      to={"/dashboard"}
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       Dashboard
@@ -185,36 +217,32 @@ const Navbar = () => {
           {isOpen && (
             <ul className="md:hidden">
               <li>
-                <a
-                  href="#"
+                <Link to="/aboutus"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >
                   About us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link to="/videos"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >
                   Video
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link to="/art"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >
                   Art
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link to="/images"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 >
                   Photo
-                </a>
+                </Link>
               </li>
             </ul>
           )}

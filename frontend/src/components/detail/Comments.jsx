@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 const Comments = () => {
   const [rating, setRating] = useState(0);
@@ -7,6 +7,19 @@ const Comments = () => {
   const [commentsList, setCommentsList] = useState([]);
   const [hoverRating, setHoverRating] = useState(0);
 
+useEffect(() => {
+  console.log("Stored Comments:", localStorage.getItem("commentsList"));
+  const storedComments = JSON.parse(localStorage.getItem("commentsList"));
+  if (storedComments) {
+    console.log("Setting Comments List:", storedComments);
+    setCommentsList(storedComments);
+  }
+}, []);
+
+useEffect(() => {
+  console.log("Saving Comments List:", commentsList);
+  localStorage.setItem("commentsList", JSON.stringify(commentsList));
+}, [commentsList]);
   const handleRating = (value) => {
     setRating(value);
   };
@@ -31,7 +44,7 @@ const Comments = () => {
       date: new Date().toLocaleDateString(),
       userName,
     };
-    setCommentsList([newComment, ...commentsList]);
+    setCommentsList((prevCommentsList) => [newComment, ...prevCommentsList]);
     setRating(0);
     setComment("");
     setUserName("");

@@ -1,87 +1,96 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 const Art = () => {
-  const [dummyArtData, setDummyArtData] = useState([
-    {
-      id: 1,
-      title: "Art 1",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
-      stars: 1,
-    },
-    {
-      id: 2,
-      title: "Art 2",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-      stars: 2,
-    },
-    {
-      id: 3,
-      title: "Art 3",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
-      stars: 4,
-    },
-    {
-      id: 4,
-      title: "Art 4",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
-      stars: 5,
-    },
-    {
-      id: 5,
-      title: "Art 5",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
-      stars: 4,
-    },
-    {
-      id: 6,
-      title: "Art 6",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
-      stars: 1,
-    },
-    {
-      id: 7,
-      title: "Art 7",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
-      stars: 3,
-    },
-    {
-      id: 8,
-      title: "Art 8",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
-      stars: 5,
-    },
-    {
-      id: 9,
-      title: "Art 9",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
-      stars: 4,
-    },
-    {
-      id: 10,
-      title: "Art 10",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
-      stars: 5,
-    },
-  ]);
+  const [dummyArtData, setDummyArtData] = useState(() => {
+    const storedData = localStorage.getItem("dummyArtData");
+    return storedData
+      ? JSON.parse(storedData)
+      : [
+          {
+            id: 1,
+            title: "Art 1",
+            src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
+            stars: 1,
+          },
+          {
+            id: 2,
+            title: "Art 2",
+            src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+            stars: 2,
+          },
+          {
+            id: 3,
+            title: "Art 3",
+            src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
+            stars: 4,
+          },
+          {
+            id: 4,
+            title: "Art 4",
+            src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+            stars: 5,
+          },
+          {
+            id: 5,
+            title: "Art 5",
+            src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
+            stars: 4,
+          },
+          {
+            id: 6,
+            title: "Art 6",
+            src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
+            stars: 1,
+          },
+          {
+            id: 7,
+            title: "Art 7",
+            src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
+            stars: 3,
+          },
+          {
+            id: 8,
+            title: "Art 8",
+            src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
+            stars: 5,
+          },
+          {
+            id: 9,
+            title: "Art 9",
+            src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
+            stars: 4,
+          },
+          {
+            id: 10,
+            title: "Art 10",
+            src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
+            stars: 5,
+          },
+        ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("dummyArtData", JSON.stringify(dummyArtData));
+  }, [dummyArtData]);
 
   const handlePageClick = (data) => {
     setCurrentPage(data.selected + 1);
   };
 
-  const [newImage, setNewImage] = useState({
+  const [newArt, setNewArt] = useState({
     title: "",
-    imageUrl: "",
+    artUrl: "",
     stars: 0,
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewImage((prevImage) => ({
-      ...prevImage,
+    setNewArt((prevArt) => ({
+      ...prevArt,
       [name]: value,
     }));
   };
@@ -89,18 +98,18 @@ const Art = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const newArt = {
+    const newArtItem = {
       id: dummyArtData.length + 1,
-      title: newImage.title,
-      src: newImage.imageUrl,
-      stars: parseInt(newImage.stars, 10),
+      title: newArt.title,
+      src: newArt.artUrl,
+      stars: parseInt(newArt.stars, 10),
     };
 
-    setDummyArtData((prevData) => [...prevData, newArt]);
+    setDummyArtData((prevData) => [...prevData, newArtItem]);
 
-    setNewImage({
+    setNewArt({
       title: "",
-      imageUrl: "",
+      artUrl: "",
       stars: 0,
     });
   };
@@ -173,7 +182,7 @@ const Art = () => {
                 type="text"
                 id="title"
                 name="title"
-                value={newImage.title}
+                value={newArt.title}
                 onChange={handleInputChange}
                 required
                 className="px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
@@ -181,16 +190,16 @@ const Art = () => {
             </div>
             <div className="flex flex-col mb-4">
               <label
-                htmlFor="imageUrl"
+                htmlFor="artUrl"
                 className="text-sm font-semibold text-gray-600"
               >
-                Image URL:
+                Art URL:
               </label>
               <input
                 type="url"
-                id="imageUrl"
-                name="imageUrl"
-                value={newImage.imageUrl}
+                id="artUrl"
+                name="artUrl"
+                value={newArt.artUrl}
                 onChange={handleInputChange}
                 required
                 className="px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
@@ -209,7 +218,7 @@ const Art = () => {
                 name="stars"
                 min="0"
                 max="5"
-                value={newImage.stars}
+                value={newArt.stars}
                 onChange={handleInputChange}
                 required
                 className="px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
