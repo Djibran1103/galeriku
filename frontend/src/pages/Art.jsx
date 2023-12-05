@@ -72,7 +72,7 @@ const Art = () => {
     setCurrentPage(data.selected + 1);
   };
 
-  const [newImage, setNewImage] = useState({
+  const [newArt, setnewArt] = useState({
     title: "",
     imageUrl: "",
     stars: 0,
@@ -80,7 +80,7 @@ const Art = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewImage((prevImage) => ({
+    setnewArt((prevImage) => ({
       ...prevImage,
       [name]: value,
     }));
@@ -91,14 +91,14 @@ const Art = () => {
 
     const newArt = {
       id: dummyArtData.length + 1,
-      title: newImage.title,
-      src: newImage.imageUrl,
-      stars: parseInt(newImage.stars, 10),
+      title: newArt.title,
+      src: newArt.imageUrl,
+      stars: parseInt(newArt.stars, 10),
     };
 
     setDummyArtData((prevData) => [...prevData, newArt]);
 
-    setNewImage({
+    setnewArt({
       title: "",
       imageUrl: "",
       stars: 0,
@@ -173,7 +173,7 @@ const Art = () => {
                 type="text"
                 id="title"
                 name="title"
-                value={newImage.title}
+                value={newArt.title}
                 onChange={handleInputChange}
                 required
                 className="px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
@@ -190,7 +190,7 @@ const Art = () => {
                 type="url"
                 id="imageUrl"
                 name="imageUrl"
-                value={newImage.imageUrl}
+                value={newArt.imageUrl}
                 onChange={handleInputChange}
                 required
                 className="px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
@@ -209,7 +209,7 @@ const Art = () => {
                 name="stars"
                 min="0"
                 max="5"
-                value={newImage.stars}
+                value={newArt.stars}
                 onChange={handleInputChange}
                 required
                 className="px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"

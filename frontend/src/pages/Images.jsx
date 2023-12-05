@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 const Images = () => {
-  const dummyImagesData = [
+  const [dummyImagesData, setDummyImagesData] = useState([
     {
       id: 1,
       title: "Image 1",
@@ -65,10 +65,49 @@ const Images = () => {
       src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
       stars: 5,
     },
-  ];
+  ]);
 
   const handlePageClick = (data) => {
     setCurrentPage(data.selected + 1);
+  };
+
+  const [newImage, setnewImage] = useState({
+    title: "",
+    imageUrl: "",
+    stars: 0,
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setnewImage((prevImage) => ({
+      ...prevImage,
+      [name]: value,
+    }));
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    const newImage = {
+      id: dummyImagesData.length + 1,
+      title: newImage.title,
+      src: newImage.imageUrl,
+      stars: parseInt(newImage.stars, 10),
+    };
+
+    setDummyImagesData((prevData) => [...prevData, newImage]);
+
+    setNewImage({
+      title: "",
+      imageUrl: "",
+      stars: 0,
+    });
+  };
+
+  const [showForm, setShowForm] = useState(false);
+
+  const toggleForm = () => {
+    setShowForm(!showForm);
   };
 
   const itemsPerPage = 9;
@@ -111,6 +150,78 @@ const Images = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="flex flex-col justify-center mt-6 mx-8">
+        <button
+          className="font-bold text-xl mb-2 bg-[#E9615A] mx-auto p-2 rounded-lg text-white hover:bg-[#F9D86C]"
+          onClick={toggleForm}
+        >
+          Upload New Images
+        </button>
+        {showForm && (
+          <form onSubmit={handleFormSubmit} className="space-y-4">
+            <div className="flex flex-col mb-4">
+              <label
+                htmlFor="title"
+                className="text-sm font-semibold text-gray-600"
+              >
+                Title:
+              </label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                value={newImage.title}
+                onChange={handleInputChange}
+                required
+                className="px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div className="flex flex-col mb-4">
+              <label
+                htmlFor="imageUrl"
+                className="text-sm font-semibold text-gray-600"
+              >
+                Image URL:
+              </label>
+              <input
+                type="url"
+                id="imageUrl"
+                name="imageUrl"
+                value={newImage.imageUrl}
+                onChange={handleInputChange}
+                required
+                className="px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div className="flex flex-col mb-4">
+              <label
+                htmlFor="stars"
+                className="text-sm font-semibold text-gray-600"
+              >
+                Stars:
+              </label>
+              <input
+                type="number"
+                id="stars"
+                name="stars"
+                min="0"
+                max="5"
+                value={newImage.stars}
+                onChange={handleInputChange}
+                required
+                className="px-4 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <button
+              type="submit"
+              className="px-6 py-3 text-white bg-[#E9615A] rounded-md hover:bg-[#F9D86C] focus:outline-none focus:ring focus:border-blue-300"
+            >
+              Submit
+            </button>
+          </form>
+        )}
       </div>
 
       <div className="flex justify-center items-center space-x-4 mt-6">

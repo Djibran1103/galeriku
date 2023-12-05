@@ -17,7 +17,7 @@ const CardComment = () => {
       />
     </svg>
   );
-  
+
   const RightArrow = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -31,25 +31,51 @@ const CardComment = () => {
         clipRule="evenodd"
       />
     </svg>
-  );  
+  );
 
   const cards = [
     {
       title: "Rifqah Azzah Mu'tasimah",
-      content: "Ternyata selama ini seni yang saya buat adalah sebuah hal yang perlu diresapi"
+      content:
+        "Ternyata selama ini seni yang saya buat adalah sebuah hal yang perlu diresapi",
     },
     {
-        title: "Ramadhan Djibran Sanjaya",
-        content: "Oiiii kiyomasaaa nande nandeeee, Seniku harus kalian kasih rate 5"
-      },
+      title: "Ramadhan Djibran Sanjaya",
+      content:
+        "Oiiii kiyomasaaa nande nandeeee, Seniku harus kalian kasih rate 5",
+    },
     {
       title: "Ariq Huwaidi",
-      content: "Mengapa selama ini ternyata menyukai videoku cuman malu malu ngomongnya awokwokwok"
+      content:
+        "Mengapa selama ini ternyata menyukai videoku cuman malu malu ngomongnya awokwokwok",
     },
     {
-        title: "Devan A.D",
-        content: "Kalian semua mendokse, just nikmati"
-      },
+      title: "Devan A.D",
+      content: "Kalian semua mendokse, just nikmati",
+    },
+    {
+      title: "Erika B.C",
+      content:
+        "Saya sangat terkesan dengan keragaman gambar di situs koleksi ini. Setiap karya memberikan inspirasi yang luar biasa bagi saya.",
+    },
+
+    {
+      title: "Rizki F.E",
+      content:
+        "Website ini adalah tempat yang luar biasa untuk mengeksplorasi seni visual. Saya menemukan banyak ide baru untuk proyek-proyek masa depan dari koleksi yang ada di sini.",
+    },
+
+    {
+      title: "Alya G.H",
+      content:
+        "Koleksi gambar di situs ini begitu menginspirasi. Saya sering merujuk ke sini untuk mendapatkan dorongan kreatif dan melihat perspektif yang berbeda.",
+    },
+
+    {
+      title: "Farhan I.J",
+      content:
+        "Situs ini adalah sumber tak ternilai untuk seni visual. Saya menemukan banyak ide dan nuansa yang membantu saya berkembang dalam gaya seni saya sendiri.",
+    },
     // Add more dummy card data as needed
   ];
 
@@ -94,7 +120,9 @@ const CardComment = () => {
       </button>
       <button
         className={`absolute top-1/2 transform -translate-y-1/2 right-0 px-4 py-2 bg-gray-300 dark:bg-slate-900 dark:hover:bg-gray-300 rounded ${
-          offset === -(cards.length - 1) * 340 ? "opacity-50 cursor-not-allowed" : "opacity-100"
+          offset === -(cards.length - 1) * 340
+            ? "opacity-50 cursor-not-allowed"
+            : "opacity-100"
         }`}
         onClick={() => slideCards(-1)}
         disabled={offset === -(cards.length - 1) * 340}
