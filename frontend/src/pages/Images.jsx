@@ -1,72 +1,79 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 const Images = () => {
-  const [dummyImageData, setDummyImageData] = useState([
-    {
-      id: 1,
-      title: "Image 1",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
-      stars: 1,
-    },
-    {
-      id: 2,
-      title: "Image 2",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-      stars: 2,
-    },
-    {
-      id: 3,
-      title: "Image 3",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
-      stars: 4,
-    },
-    {
-      id: 4,
-      title: "Image 4",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
-      stars: 5,
-    },
-    {
-      id: 5,
-      title: "Image 5",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
-      stars: 4,
-    },
-    {
-      id: 6,
-      title: "Image 6",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
-      stars: 1,
-    },
-    {
-      id: 7,
-      title: "Image 7",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
-      stars: 3,
-    },
-    {
-      id: 8,
-      title: "Image 8",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
-      stars: 5,
-    },
-    {
-      id: 9,
-      title: "Image 9",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
-      stars: 4,
-    },
-    {
-      id: 10,
-      title: "Image 10",
-      src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
-      stars: 5,
-    },
-  ]);
+  const [dummyImageData, setDummyImageData] = useState(() => {
+    const storedData = localStorage.getItem("dummyImageData");
+    return storedData ? JSON.parse(storedData) : [
+      {
+        id: 1,
+        title: "Image 1",
+        src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
+        stars: 1,
+      },
+      {
+        id: 2,
+        title: "Image 2",
+        src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+        stars: 2,
+      },
+      {
+        id: 3,
+        title: "Image 3",
+        src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
+        stars: 4,
+      },
+      {
+        id: 4,
+        title: "Image 4",
+        src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+        stars: 5,
+      },
+      {
+        id: 5,
+        title: "Image 5",
+        src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
+        stars: 4,
+      },
+      {
+        id: 6,
+        title: "Image 6",
+        src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
+        stars: 1,
+      },
+      {
+        id: 7,
+        title: "Image 7",
+        src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
+        stars: 3,
+      },
+      {
+        id: 8,
+        title: "Image 8",
+        src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
+        stars: 5,
+      },
+      {
+        id: 9,
+        title: "Image 9",
+        src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
+        stars: 4,
+      },
+      {
+        id: 10,
+        title: "Image 10",
+        src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
+        stars: 5,
+      },
+    ];
+  }); 
+
+  useEffect(() => {
+    localStorage.setItem("dummyImageData", JSON.stringify(dummyImageData));
+  }, [dummyImageData]);
 
   const handlePageClick = (data) => {
     setCurrentPage(data.selected + 1);

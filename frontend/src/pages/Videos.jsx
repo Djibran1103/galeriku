@@ -1,72 +1,81 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 const Videos = () => {
-  const [dummyVideosData, setDummyVideosData] = useState([
-    {
-      id: 1,
-      title: "Video 1",
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      stars: 1,
-    },
-    {
-      id: 2,
-      title: "Video 2",
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      stars: 2,
-    },
-    {
-      id: 3,
-      title: "Video 3",
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-      stars: 4,
-    },
-    {
-      id: 4,
-      title: "Video 4",
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-      stars: 5,
-    },
-    {
-      id: 5,
-      title: "Video 5",
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-      stars: 4,
-    },
-    {
-      id: 6,
-      title: "Video 6",
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-      stars: 1,
-    },
-    {
-      id: 7,
-      title: "Video 7",
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-      stars: 3,
-    },
-    {
-      id: 8,
-      title: "Video 8",
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-      stars: 5,
-    },
-    {
-      id: 9,
-      title: "Video 9",
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-      stars: 4,
-    },
-    {
-      id: 10,
-      title: "Video 10",
-      src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-      stars: 5,
-    },
-  ]);
+  const [dummyVideosData, setDummyVideosData] = useState(() => {
+    const storedData = localStorage.getItem("dummyVideosData");
+    return storedData
+      ? JSON.parse(storedData)
+      : [
+          {
+            id: 1,
+            title: "Video 1",
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            stars: 1,
+          },
+          {
+            id: 2,
+            title: "Video 2",
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            stars: 2,
+          },
+          {
+            id: 3,
+            title: "Video 3",
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            stars: 4,
+          },
+          {
+            id: 4,
+            title: "Video 4",
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            stars: 5,
+          },
+          {
+            id: 5,
+            title: "Video 5",
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+            stars: 4,
+          },
+          {
+            id: 6,
+            title: "Video 6",
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+            stars: 1,
+          },
+          {
+            id: 7,
+            title: "Video 7",
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+            stars: 3,
+          },
+          {
+            id: 8,
+            title: "Video 8",
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+            stars: 5,
+          },
+          {
+            id: 9,
+            title: "Video 9",
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
+            stars: 4,
+          },
+          {
+            id: 10,
+            title: "Video 10",
+            src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+            stars: 5,
+          },
+      ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("dummyVideosData", JSON.stringify(dummyVideosData));
+  }, [dummyVideosData]);
 
   const handlePageClick = (data) => {
     setCurrentPage(data.selected + 1);
