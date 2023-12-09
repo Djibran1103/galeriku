@@ -154,7 +154,7 @@ const Videos = () => {
       <div className="grid grid-cols-3 gap-4 mx-8 mt-2">
         {currentItems.map((video) => (
           <div key={video.id}>
-            <Link to={`/detail/videos/${video.id}`}>
+            <Link to={`/detail/video/${video.id}`}>
               <video className="rounded-lg" controls>
                 <source src={video.src} type="video/mp4" />
                 Your browser does not support the video tag.
